@@ -13,7 +13,7 @@ import UserProfile from "./pages/Profile/UserProfile"
 import TweetThread from "./pages/Tweet/TweetThread"
 import CommentThread from "./components/Comment/Commentthread"
 
-// Protected Route Component
+// Protected Route Componentes
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth()
 
