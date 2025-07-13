@@ -11,7 +11,7 @@ import Bookmarks from "./pages/Bookmarks/Bookmarks"
 import Profile from "./pages/Profile/Profile"
 import UserProfile from "./pages/Profile/UserProfile"
 import TweetThread from "./pages/Tweet/TweetThread"
-import CommentThread from "./components/Comment/Commentthread"
+import CommentThread from "../components/Comment/CommentThread"
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
