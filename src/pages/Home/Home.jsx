@@ -120,11 +120,14 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="flex">
-        <Sidebar />
+      <div className="flex flex-col md:flex-row">
+        {/* Sidebar visible solo en md+ */}
+        <div className="hidden md:block md:w-64">
+          <Sidebar />
+        </div>
 
         {/* Main Content */}
-        <div className="flex-1 ml-64 mr-80">
+        <div className="flex-1 md:ml-64 md:mr-80">
           <div className="max-w-2xl mx-auto border-x border-gray-800 min-h-screen">
             {/* Enhanced Header with Tabs */}
             <div className="sticky top-0 bg-black/80 backdrop-blur-xl border-b border-gray-800 z-10">
@@ -135,9 +138,8 @@ const Home = () => {
                     <button
                       key={tab.id}
                       onClick={() => handleTabChange(tab.id)}
-                      className={`flex-1 py-4 px-6 text-center font-medium transition-all relative group ${
-                        activeTab === tab.id ? "text-white" : "text-gray-500 hover:text-gray-300"
-                      }`}
+                      className={`flex-1 py-4 px-6 text-center font-medium transition-all relative group ${activeTab === tab.id ? "text-white" : "text-gray-500 hover:text-gray-300"
+                        }`}
                     >
                       <div className="flex items-center justify-center space-x-2">
                         <Icon size={20} />
@@ -198,7 +200,10 @@ const Home = () => {
           </div>
         </div>
 
-        <RightSidebar />
+        {/* RightSidebar visible solo en md+ */}
+        <div className="hidden md:block md:w-80">
+          <RightSidebar />
+        </div>
       </div>
     </div>
   )

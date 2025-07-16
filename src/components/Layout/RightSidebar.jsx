@@ -65,9 +65,9 @@ const RightSidebar = () => {
 
   const renderList = (items, metric) =>
     items.map((post, idx) => (
-      <li key={idx} 
-      onClick={() => navigate(`/tweet/${post._id}`)}
-      className="hover:bg-gray-800 p-2 rounded cursor-pointer">
+      <li key={idx}
+        onClick={() => navigate(`/tweet/${post._id}`)}
+        className="hover:bg-gray-800 p-2 rounded cursor-pointer">
         <p className="text-gray-500 text-sm">
           {metric === "comments"
             ? `${post.comments?.length || 0} comentarios`
@@ -85,7 +85,7 @@ const RightSidebar = () => {
     ))
 
   return (
-    <div className="fixed right-0 top-0 h-full w-80 bg-black p-4 flex flex-col">
+    <div className="md:fixed md:right-0 md:top-0 md:h-full md:w-80 w-full p-4 flex flex-col bg-black md:border-l md:border-gray-800">
       {/* Search */}
       <div className="relative mb-6">
         <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
