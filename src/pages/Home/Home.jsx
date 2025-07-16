@@ -14,6 +14,8 @@ const Home = () => {
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState("foryou")
   const [followingCount, setFollowingCount] = useState(0)
+  const [showSidebar, setShowSidebar] = useState(false)
+  const [showRightSidebar, setShowRightSidebar] = useState(false)
 
   const tabs = [
     {
@@ -132,6 +134,14 @@ const Home = () => {
             {/* Enhanced Header with Tabs */}
             <div className="sticky top-0 bg-black/80 backdrop-blur-xl border-b border-gray-800 z-10">
               <div className="flex">
+                <div className="flex justify-between items-center px-4 py-2 md:hidden">
+                  <button onClick={() => setShowSidebar(true)} className="text-white font-bold">
+                    ☰
+                  </button>
+                  <button onClick={() => setShowRightSidebar(true)} className="text-white font-bold">
+                    🔍
+                  </button>
+                </div>
                 {tabs.map((tab) => {
                   const Icon = tab.icon
                   return (
@@ -205,6 +215,27 @@ const Home = () => {
           <RightSidebar />
         </div>
       </div>
+      {/* Mobile Sidebar (left) */}
+      {showSidebar && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex">
+          <div className="w-64 bg-black border-r border-gray-800 p-4 overflow-y-auto">
+            <button onClick={() => setShowSidebar(false)} className="text-white mb-4">✖ Cerrar</button>
+            <Sidebar />
+          </div>
+          <div className="flex-1" onClick={() => setShowSidebar(false)}></div>
+        </div>
+      )}
+
+      {/* Mobile RightSidebar (right) */}
+      {showRightSidebar && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-end">
+          <div className="w-80 bg-black border-l border-gray-800 p-4 overflow-y-auto">
+            <button onClick={() => setShowRightSidebar(false)} className="text-white mb-4">✖ Cerrar</button>
+            <RightSidebar />
+          </div>
+          <div className="flex-1" onClick={() => setShowRightSidebar(false)}></div>
+        </div>
+      )}
     </div>
   )
 }
