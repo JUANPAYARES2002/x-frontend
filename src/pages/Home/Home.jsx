@@ -7,6 +7,7 @@ import RightSidebar from "../../components/Layout/RightSidebar"
 import TweetComposer from "../../components/Tweet/TweetComposer"
 import Tweet from "../../components/Tweet/Tweet"
 import { postsAPI, followAPI } from "../../utils/api"
+import { Menu, Search } from "lucide-react"
 
 const Home = () => {
   const [tweets, setTweets] = useState([])
@@ -135,12 +136,12 @@ const Home = () => {
             <div className="sticky top-0 bg-black/80 backdrop-blur-xl border-b border-gray-800 z-10">
               <div className="flex">
                 <div className="flex justify-between items-center px-4 py-2 md:hidden">
-                  <button onClick={() => setShowSidebar(true)} className="text-white font-bold">
-                    ☰
-                  </button>
-                  <button onClick={() => setShowRightSidebar(true)} className="text-white font-bold">
-                    🔍
-                  </button>
+                  <div>
+                    <button onClick={() => setShowSidebar(true)}><Menu size={24} /></button>
+                  </div>
+                  <div className="ml-auto">
+                    <button onClick={() => setShowRightSidebar(true)}><Search size={24} /></button>
+                  </div>
                 </div>
                 {tabs.map((tab) => {
                   const Icon = tab.icon
